@@ -30,8 +30,13 @@ class TodoList extends React.Component<undefined, TodoListState> {
 			/>
 		);
 	}
-
-	submit(event: any) {
+	async getData(owner:string) {
+		let response = await fetch('http://hotell.difi.no/api/json/kud/idrettsanlegg?eier='+owner);
+		let json = await response.json();
+		return json;
+	}
+	 submit(event: any) {
+		this.getData("oppsal").then((res:any)=>{console.log(res)});
 		event.preventDefault();
 		this.setState({
 			todoElements: this.state.todoElements.concat({
