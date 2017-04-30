@@ -33,14 +33,21 @@ export interface idrettsanleggApiType {
     malverdi1: string
 }
 
+export interface idrettsanleggSearchResult {
+    entries: idrettsanleggApiType[],
+    page: number,
+    pages: number,
+    posts: number
+}
+
 export interface idrettsanleggViewModel {
     eier: string,
     anleggsnavn: string,
-    anleggsnummer: number,
-    utbetalt: number,
+    anleggsnummer: string,
+    utbetalt: string,
     anleggskategori: string,
     byggear: string,
-    tildelt: number,
+    tildelt: string,
     status: string,
     anleggstype: string
 }
