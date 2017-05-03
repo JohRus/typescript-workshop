@@ -17,6 +17,14 @@ const Idrettsanlegg = (props: idrettsanleggProps) => {
     return (
         <section style={{marginTop:"5px"}}>
             <ul className="list-group">
+                { props.idrettsanlegg.length > 0 ?
+                    <li key={0} className="list-group-item row">
+                            <strong className="col-md-4">Eier</strong>
+                            <strong className="col-md-4">Anleggsnavn</strong>
+                            <strong className="col-md-4">Anleggstype</strong>
+                    </li>
+                    :null
+                }
                 {props.idrettsanlegg.map(mapIdrettsanlegg)}
             </ul>
         </section>
