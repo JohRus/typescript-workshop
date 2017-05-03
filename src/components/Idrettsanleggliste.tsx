@@ -5,7 +5,7 @@ interface idrettsanleggProps {
     idrettsanlegg: idrettsanleggViewModel[]
 }
 
-const Idrettsanlegg = (props: idrettsanleggProps) => {
+const Idrettsanleggliste = (props: idrettsanleggProps) => {
 
     const mapIdrettsanlegg = (idrettsanlegg: idrettsanleggViewModel, indeks: number) => (
         <li key={indeks} className="list-group-item row">
@@ -15,7 +15,7 @@ const Idrettsanlegg = (props: idrettsanleggProps) => {
         </li>
     );
     return (
-        <section style={{marginTop:"5px"}}>
+        <section style={{marginTop:"30px"}}>
             <ul className="list-group">
                 { props.idrettsanlegg.length > 0 ?
                     <li key={0} className="list-group-item row">
@@ -31,4 +31,4 @@ const Idrettsanlegg = (props: idrettsanleggProps) => {
     );
 };
 
-export default Idrettsanlegg;
+export default Idrettsanleggliste;

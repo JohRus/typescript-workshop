@@ -1,6 +1,6 @@
 import React from 'react';
 import Sok from './Sok';
-import Idrettsanlegg from './Idrettsanlegg';
+import Idrettsanleggliste from './Idrettsanleggliste';
 import { idrettsanleggViewModel } from '../models/idrettsanlegg';
 import Header from './Header';
 
@@ -28,7 +28,7 @@ class App extends React.Component<undefined, AppState> {
             <main className="app">
                 <Header />
                 <Sok lagre={this.lagre} />
-                <Idrettsanlegg idrettsanlegg={this.state.idrettsanlegg}/>
+                <Idrettsanleggliste idrettsanlegg={this.state.idrettsanlegg}/>
             </main>
         );
     }
