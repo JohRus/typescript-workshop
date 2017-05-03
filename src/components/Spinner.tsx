@@ -8,6 +8,7 @@ interface SpinnerProps {
     children?: ReactNode;
 }
 
+
 const getFontsize = (storrelse: storrelseType): string => {
     switch(storrelse) {
         case "stor":
