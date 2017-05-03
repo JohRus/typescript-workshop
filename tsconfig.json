@@ -3,8 +3,10 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
         "target": "es6",
-        "jsx": "react"
+        "jsx": "react",
+        "moduleResolution": "node"
     },
     "include": [
         "./src/**/*"

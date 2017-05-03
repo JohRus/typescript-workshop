@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { idrettsanleggViewModel } from '../types/idrettsanlegg';
 
 interface idrettsanleggProps {
