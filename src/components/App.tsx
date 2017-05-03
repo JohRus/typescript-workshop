@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Sok from './Sok';
 import Idrettsanlegg from './Idrettsanlegg';
 import { idrettsanleggViewModel } from '../types/idrettsanlegg';
