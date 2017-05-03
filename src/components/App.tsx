@@ -1,6 +1,7 @@
 import React from 'react';
 import Sok from './Sok';
-import Idrettsanlegg from './Idrettsanlegg';
+import Idrettsanleggliste from './Idrettsanleggliste';
+import Header from './Header';
 
 class App extends React.Component<undefined, undefined> {
     constructor() {
@@ -10,8 +11,9 @@ class App extends React.Component<undefined, undefined> {
     render() {
         return (
             <main className="app">
+                <Header />
                 <Sok />
-                <Idrettsanlegg />
+                <Idrettsanleggliste />
             </main>
         );
     }

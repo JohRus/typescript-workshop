@@ -1,4 +1,4 @@
-import { idrettsanleggSearchResult } from '../types/idrettsanlegg';
+import { idrettsanleggSearchResult } from '../models/idrettsanlegg';
 import * as Api from '../api';
 
 const SOK_SUCCESS = 'SOK_SUCCESS';
@@ -11,7 +11,11 @@ const initialState: idrettsanleggSearchResult = {
     posts: 0
 };
 
-export default (state: idrettsanleggSearchResult = initialState, action: any) => {
+export interface idrettsannleggState extends idrettsanleggSearchResult {
+
+}
+
+export default (state: idrettsannleggState = initialState, action: any) => {
     switch (action.type) {
         case SOK_SUCCESS:
             return { ...action.data };
