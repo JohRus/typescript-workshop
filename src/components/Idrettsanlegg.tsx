@@ -8,17 +8,17 @@ interface idrettsanleggProps {
 const Idrettsanlegg = (props: idrettsanleggProps) => {
 
     const mapIdrettsanlegg = (idrettsanlegg: idrettsanleggViewModel, indeks: number) => (
-        <div key={indeks}>
-            <span>{idrettsanlegg.eier}</span>
-            <span>{idrettsanlegg.anleggsnavn}</span>
-            <span>{idrettsanlegg.anleggstype}</span>
-        </div>
+        <li key={indeks} className="list-group-item row">
+            <span className="col-md-4">{idrettsanlegg.eier}</span>
+            <span className="col-md-4">{idrettsanlegg.anleggsnavn}</span>
+            <span className="col-md-4">{idrettsanlegg.anleggstype}</span>
+        </li>
     );
-
     return (
-        <section>
-            <div>{props.idrettsanlegg.length}</div>
-            {props.idrettsanlegg.map(mapIdrettsanlegg)}
+        <section style={{marginTop:"5px"}}>
+            <ul className="list-group">
+                {props.idrettsanlegg.map(mapIdrettsanlegg)}
+            </ul>
         </section>
     );
 };
