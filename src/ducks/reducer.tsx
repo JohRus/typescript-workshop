@@ -1,5 +1,4 @@
 import { idrettsanleggSearchResult } from '../models/idrettsanlegg';
-import * as Api from '../api';
 
 const SOK_SUCCESS = 'SOK_SUCCESS';
 const SOK_PENDING = 'SOK_PENDING';
@@ -26,11 +25,9 @@ export default (state: idrettsannleggState = initialState, action: any) => {
     }
 }
 
-export const sok = (eier: string) => {
-    Api.sok(eier)
-        .then(((res: idrettsanleggSearchResult) => ({
-            type: SOK_SUCCESS,
-            data: res
-        })))
-        .catch(err => console.error(err));
+export const lagre = (data: idrettsanleggSearchResult) => {
+    return {
+        type: SOK_SUCCESS,
+        data: data
+    }
 };

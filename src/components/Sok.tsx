@@ -1,7 +1,9 @@
 import React from 'react';
 import {FormEvent} from "react";
 import {connect} from 'react-redux';
-import {sok} from '../ducks/reducer';
+import {lagre} from '../ducks/reducer';
+import * as Api from '../api';
+import {idrettsanleggSearchResult} from "../models/idrettsanlegg";
 
 interface sokProps {
     doSok: (eier: string) => any
@@ -38,7 +40,12 @@ const Sok = (props: sokProps) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        doSok: (eier: string) => dispatch(sok(eier))
+        doSok: (eier: string) => {
+            Api.sok(eier)
+                .then(((res: idrettsanleggSearchResult) => dispatch(lagre(res))))
+                .catch(err => console.error(err));
+
+        }
     }
 };
 
