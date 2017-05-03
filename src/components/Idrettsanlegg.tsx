@@ -1,5 +1,6 @@
 import React from 'react';
 import { idrettsanleggViewModel } from '../types/idrettsanlegg';
+import {connect} from "react-redux";
 
 interface idrettsanleggProps {
     idrettsanlegg: idrettsanleggViewModel[]
@@ -23,4 +24,8 @@ const Idrettsanlegg = (props: idrettsanleggProps) => {
     );
 };
 
-export default Idrettsanlegg;
+const mapStateToProps = (state: any) => ({
+    idrettsanlegg: state.idrettsanlegg
+});
+
+export default connect(mapStateToProps)(Idrettsanlegg);

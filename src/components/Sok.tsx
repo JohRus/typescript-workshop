@@ -1,9 +1,10 @@
 import React from 'react';
-import { idrettsanleggApiType, idrettsanleggViewModel, idrettsanleggSearchResult } from '../types/idrettsanlegg';
 import {FormEvent} from "react";
+import {connect} from 'react-redux';
+import {sok} from '../ducks/reducer';
 
 interface sokProps {
-    lagre: (idrettsanlegg: idrettsanleggViewModel[]) => any
+    doSok: (eier: string) => any
 }
 
 interface SearchForm extends HTMLFormElement {
@@ -11,27 +12,10 @@ interface SearchForm extends HTMLFormElement {
 }
 
 const Sok = (props: sokProps) => {
-    const sok = async function(eier: string): Promise<idrettsanleggSearchResult> {
-        const response = await fetch(`http://hotell.difi.no/api/json/kud/idrettsanlegg?eier=${eier}`);
-        return await response.json();
-    };
-
-    const mapEntries = (entry: idrettsanleggApiType): idrettsanleggViewModel => ({
-        eier: entry.eier,
-        anleggsnavn: entry.anleggsnavn,
-        anleggsnummer: entry.anleggsnummer,
-        utbetalt: entry.utbetalt,
-        anleggskategori: entry.anleggskategori,
-        byggear: entry.byggear,
-        tildelt: entry.tildelt,
-        status: entry.status,
-        anleggstype: entry.anleggstype
-    });
 
     const submit = (event: FormEvent<SearchForm>): void => {
         event.preventDefault();
-        sok(event.currentTarget.nokkelord.value)
-            .then((res: idrettsanleggSearchResult) => props.lagre(res.entries.map(mapEntries)));
+        props.doSok(event.currentTarget.nokkelord.value);
     };
 
     return (
@@ -44,4 +28,10 @@ const Sok = (props: sokProps) => {
     );
 };
 
-export default Sok;
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        doSok: (eier: string) => dispatch(sok(eier))
+    }
+};
+
+export default connect(() => ({}), mapDispatchToProps)(Sok);
