@@ -1,7 +1,7 @@
 import React from 'react';
 import Sok from './Sok';
 import Idrettsanlegg from './Idrettsanlegg';
-import { idrettsanleggViewModel } from '../types/idrettsanlegg';
+import { idrettsanleggViewModel } from '../models/idrettsanlegg';
 import Header from './Header';
 
 interface AppState {

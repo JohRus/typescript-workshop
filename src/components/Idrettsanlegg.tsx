@@ -1,5 +1,5 @@
 import React from 'react';
-import { idrettsanleggViewModel } from '../types/idrettsanlegg';
+import { idrettsanleggViewModel } from '../models/idrettsanlegg';
 
 interface idrettsanleggProps {
     idrettsanlegg: idrettsanleggViewModel[]

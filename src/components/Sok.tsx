@@ -1,5 +1,5 @@
 import React from 'react';
-import { idrettsanleggApiType, idrettsanleggViewModel, idrettsanleggSearchResult } from '../types/idrettsanlegg';
+import { idrettsanleggApiType, idrettsanleggViewModel, idrettsanleggSearchResult } from '../models/idrettsanlegg';
 import {FormEvent} from "react";
 
 interface sokProps {
