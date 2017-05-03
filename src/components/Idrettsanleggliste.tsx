@@ -35,7 +35,7 @@ const Idrettsanleggliste = (props: idrettsanleggProps) => {
 
 const mapStateToProps = (state: idrettsannleggState) => {
     return {
-        idrettsanlegg: state.entries
+        idrettsanlegg: state.data.entries
     };
 };
 

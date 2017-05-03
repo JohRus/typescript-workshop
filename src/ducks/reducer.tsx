@@ -1,5 +1,4 @@
 import { idrettsanleggSearchResult } from '../models/idrettsanlegg';
-import Api from '../api';
 import {RestAction} from "../utils/rest-utils";
 
 const SOK_SUCCESS = 'SOK_SUCCESS';
@@ -35,11 +34,9 @@ export default (state: idrettsannleggState = initialState, action: RestAction<id
     }
 }
 
-export const sok = (eier: string) => {
-    Api.sok(eier)
-        .then(((res: idrettsanleggSearchResult) => ({
-            type: SOK_SUCCESS,
-            data: res
-        })))
-        .catch(err => console.error(err));
+export const lagre = (data: idrettsanleggSearchResult): RestAction<idrettsanleggSearchResult> => {
+    return {
+        type: SOK_SUCCESS,
+        payload: data
+    }
 };
