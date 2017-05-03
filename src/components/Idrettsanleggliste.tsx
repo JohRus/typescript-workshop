@@ -1,10 +1,12 @@
 import React from 'react';
 import { idrettsanleggViewModel } from '../models/idrettsanlegg';
 import {connect} from "react-redux";
-import {idrettsannleggState} from "../ducks/reducer";
+import {idrettsannleggState, REST_STATUS} from "../ducks/reducer";
+import {Spinner} from "./Spinner";
 
 interface idrettsanleggProps {
-    idrettsanlegg: idrettsanleggViewModel[]
+    idrettsanlegg: idrettsanleggViewModel[];
+    laster: boolean;
 }
 
 const Idrettsanleggliste = (props: idrettsanleggProps) => {
@@ -18,24 +20,27 @@ const Idrettsanleggliste = (props: idrettsanleggProps) => {
     );
     return (
         <section style={{marginTop:"30px"}}>
-            <ul className="list-group">
-                { props.idrettsanlegg.length > 0 ?
-                    <li key={0} className="list-group-item row">
-                            <strong className="col-md-4">Eier</strong>
-                            <strong className="col-md-4">Anleggsnavn</strong>
-                            <strong className="col-md-4">Anleggstype</strong>
-                    </li>
-                    :null
-                }
-                {props.idrettsanlegg.map(mapIdrettsanlegg)}
-            </ul>
+            <Spinner laster={props.laster} storrelse="stor">
+                <ul className="list-group">
+                    { props.idrettsanlegg.length > 0 ?
+                        <li key={0} className="list-group-item row">
+                                <strong className="col-md-4">Eier</strong>
+                                <strong className="col-md-4">Anleggsnavn</strong>
+                                <strong className="col-md-4">Anleggstype</strong>
+                        </li>
+                        :null
+                    }
+                    {props.idrettsanlegg.map(mapIdrettsanlegg)}
+                </ul>
+            </Spinner>
         </section>
     );
 };
 
 const mapStateToProps = (state: idrettsannleggState) => {
     return {
-        idrettsanlegg: state.data.entries
+        idrettsanlegg: state.data.entries,
+        laster: state.status === REST_STATUS.PENDING
     };
 };
 

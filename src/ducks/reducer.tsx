@@ -1,8 +1,8 @@
 import { idrettsanleggSearchResult } from '../models/idrettsanlegg';
 import {RestAction} from "../utils/rest-utils";
 
-const SOK_SUCCESS = 'SOK_SUCCESS';
-const SOK_PENDING = 'SOK_PENDING';
+export const SOK_SUCCESS = 'SOK_SUCCESS';
+export const SOK_PENDING = 'SOK_PENDING';
 
 export enum REST_STATUS {
     INITIALISERT, PENDING, SUCCESS

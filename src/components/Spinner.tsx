@@ -24,7 +24,11 @@ const getFontsize = (storrelse: storrelseType): string => {
 export const Spinner = (props: SpinnerProps) => {
     if(props.laster) {
         const fontSize = getFontsize(props.storrelse);
-        return <div className="fa fa-spinner fa-spin" style={{ fontSize }}/>;
+        return (
+            <div className="text-center">
+                <div className="fa fa-spinner fa-spin" style={{ fontSize }}/>
+            </div>
+        );
     }
     return <div>{props.children}</div>
 };

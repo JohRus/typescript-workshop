@@ -1,7 +1,7 @@
 import React from 'react';
 import {FormEvent} from "react";
 import {connect, Dispatch} from 'react-redux';
-import {lagre} from '../ducks/reducer';
+import {lagre, SOK_PENDING} from '../ducks/reducer';
 import * as Api from '../api';
 import {idrettsanleggSearchResult} from "../models/idrettsanlegg";
 import {RestAction} from "../utils/rest-utils";
@@ -42,6 +42,7 @@ const Sok = (props: sokProps) => {
 const mapDispatchToProps = (dispatch: Dispatch<RestAction<idrettsanleggSearchResult>>) => {
     return {
         doSok: (eier: string) => {
+            dispatch({ type: SOK_PENDING });
             Api.sok(eier)
                 .then(((res: idrettsanleggSearchResult) => dispatch(lagre(res))))
                 .catch(err => console.error(err));
