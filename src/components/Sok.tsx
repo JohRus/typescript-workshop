@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { idrettsanleggApiType, idrettsanleggViewModel, idrettsanleggSearchResult } from '../types/idrettsanlegg';
 import {FormEvent} from "react";
 
