@@ -6,12 +6,11 @@ import App from './components/App';
 import reducer from './ducks/reducer';
 
 const store = createStore(reducer);
-
 const render = () => ReactDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>,
-    document.getElementById("app")
+    </Provider>
+    , document.getElementById("app")
 );
 
 render();

@@ -3,11 +3,7 @@ import Sok from './Sok';
 import Idrettsanleggliste from './Idrettsanleggliste';
 import Header from './Header';
 
-class App extends React.Component<undefined, undefined> {
-    constructor() {
-        super();
-    }
-
+class App extends React.Component {
     render() {
         return (
             <main className="app">
@@ -18,5 +14,4 @@ class App extends React.Component<undefined, undefined> {
         );
     }
 }
-
 export default App;

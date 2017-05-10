@@ -1,16 +1,7 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 
-type storrelseType = "liten" | "medium" | "stor"
-
-interface SpinnerProps {
-    laster: boolean;
-    storrelse?: storrelseType;
-    children?: ReactNode;
-}
-
-
-const getFontsize = (storrelse: storrelseType): string => {
-    switch(storrelse) {
+const getFontsize = (storrelse) => {
+    switch (storrelse) {
         case "stor":
             return "60px";
         case "medium":
@@ -21,8 +12,8 @@ const getFontsize = (storrelse: storrelseType): string => {
     }
 };
 
-export const Spinner = (props: SpinnerProps) => {
-    if(props.laster) {
+export const Spinner = (props) => {
+    if (props.laster) {
         const fontSize = getFontsize(props.storrelse);
         return (
             <div className="text-center">
@@ -30,7 +21,7 @@ export const Spinner = (props: SpinnerProps) => {
             </div>
         );
     }
-    return <div>{props.children}</div>
+    return <div>{props.children}</div>;
 };
 
 export default Spinner;

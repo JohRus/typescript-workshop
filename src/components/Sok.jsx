@@ -1,22 +1,10 @@
 import React from 'react';
-import {FormEvent} from "react";
-import {connect, Dispatch} from 'react-redux';
-import {lagre, SOK_PENDING} from '../ducks/reducer';
+import { connect } from 'react-redux';
+import { lagre, SOK_PENDING } from '../ducks/reducer';
 import * as Api from '../api';
-import {idrettsanleggSearchResult} from "../models/idrettsanlegg";
-import {RestAction} from "../utils/rest-utils";
 
-interface sokProps {
-    doSok: (eier: string) => any
-}
-
-interface SearchForm extends HTMLFormElement {
-    nokkelord: HTMLInputElement;
-}
-
-const Sok = (props: sokProps) => {
-
-    const submit = (event: FormEvent<SearchForm>): void => {
+const Sok = (props) => {
+    const submit = (event) => {
         event.preventDefault();
         props.doSok(event.currentTarget.nokkelord.value);
     };
@@ -39,16 +27,14 @@ const Sok = (props: sokProps) => {
     );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<RestAction<idrettsanleggSearchResult>>) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        doSok: (eier: string) => {
+        doSok: (eier) => {
             dispatch({ type: SOK_PENDING });
             Api.sok(eier)
-                .then(((res: idrettsanleggSearchResult) => dispatch(lagre(res))))
+                .then(((res) => dispatch(lagre(res))))
                 .catch(err => console.error(err));
-
         }
-    }
+    };
 };
-
-export default connect(() => ({}), mapDispatchToProps)(Sok);
+export default connect(null, mapDispatchToProps)(Sok);
