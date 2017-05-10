@@ -7,7 +7,7 @@ Vi anbefaler at du bruker en ide som støtter typescript, som f.eks. Intellij el
 Vi har laget en liten app (React, redux, bootstrap, webpack, babel) som gjør det mulig å søke i Difi sitt åpne datasett 
 om idrettsanlegg i Norge. Per nå er søket meget primitivt og det er kun mulig å søke på eier. For eksempel: "Oslo kommune".
 
-Start med å klone ned repoet, og start appen ved å kjøre `npm run start`. Appen serves på localhost:8080.
+Start med å klone ned repoet, kjør `npm install`, og start appen ved å kjøre `npm run start`. Appen serves på localhost:8080.
 
 Typescriptdokumentasjonen finnes [her](https://www.typescriptlang.org/docs/home.html). Sjekk f.eks. ut 
 [interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html) for å komme i gang.
