@@ -31,7 +31,8 @@ Når hele prosjektet er konvertert til Typescript:
 1. Fjern babel fra webpack-configen
 2. Sett `allowJs` til `false` i tsconfig.json
 3. Sett `noImplicitAny` til `true` i tsconfig.json
-4. Fiks evt. nye feil som dukker opp
+4. Sett `strictNullChecks` til `true` i tsconfig.json
+5. Fiks evt. nye feil som dukker opp
 
 ## Forslag til app-utvidelse
 * Flere søkeparametere
