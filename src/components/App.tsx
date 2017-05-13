@@ -3,7 +3,7 @@ import Sok from './Sok';
 import Idrettsanleggliste from './Idrettsanleggliste';
 import Header from './Header';
 
-class App extends React.Component<undefined, undefined> {
+class App extends React.Component<{}, {}> {
     constructor() {
         super();
     }

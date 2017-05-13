@@ -9,7 +9,7 @@ interface SpinnerProps {
 }
 
 
-const getFontsize = (storrelse: storrelseType): string => {
+const getFontsize = (storrelse?: storrelseType): string => {
     switch(storrelse) {
         case "stor":
             return "60px";
