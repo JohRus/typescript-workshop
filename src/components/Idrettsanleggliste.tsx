@@ -1,8 +1,9 @@
 import React from 'react';
 import { idrettsanleggViewModel } from '../models/idrettsanlegg';
 import {connect} from "react-redux";
-import {idrettsannleggState, REST_STATUS} from "../ducks/reducer";
+import {idrettsannleggState} from "../ducks/reducer";
 import {Spinner} from "./Spinner";
+import {RestStatus} from "../utils/rest-utils";
 
 interface idrettsanleggProps {
     idrettsanlegg: idrettsanleggViewModel[];
@@ -40,7 +41,7 @@ const Idrettsanleggliste = (props: idrettsanleggProps) => {
 const mapStateToProps = (state: idrettsannleggState) => {
     return {
         idrettsanlegg: state.data.entries,
-        laster: state.status === REST_STATUS.PENDING
+        laster: state.status === RestStatus.PENDING
     };
 };
 

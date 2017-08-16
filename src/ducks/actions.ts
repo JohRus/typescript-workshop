@@ -18,3 +18,12 @@ export type SokActionTypes =
     | SokAction
     | SokSuccessAction;
 
+
+export function lagreIdrettsanlegg(data: idrettsanleggSearchResult): SokSuccessAction {
+    return {
+        type: SokActionKeys.SUCCESS,
+        payload: data
+    };
+}
+
+

@@ -1,13 +1,12 @@
-import React from 'react';
-import {FormEvent} from "react";
+import React, {FormEvent} from 'react';
 import {connect, Dispatch} from 'react-redux';
-import {lagre, SOK_PENDING} from '../ducks/reducer';
 import * as Api from '../api';
 import {idrettsanleggSearchResult} from "../models/idrettsanlegg";
-import {RestAction} from "../utils/rest-utils";
+import {lagreIdrettsanlegg, SokActionTypes} from "../ducks/actions";
+import {RestStatus} from "../utils/rest-utils";
 
 interface sokProps {
-    doSok: (eier: string) => any
+    doSok: (eier: string) => void
 }
 
 interface SearchForm extends HTMLFormElement {
@@ -39,12 +38,12 @@ const Sok = (props: sokProps) => {
     );
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<RestAction<idrettsanleggSearchResult>>) => {
+const mapDispatchToProps = (dispatch: Dispatch<SokActionTypes>) => {
     return {
         doSok: (eier: string) => {
-            dispatch({ type: SOK_PENDING });
-            Api.sok(eier)
-                .then(((res: idrettsanleggSearchResult) => dispatch(lagre(res))))
+            dispatch({ type: RestStatus.PENDING });
+            Api.sokIdrettsanlegg(eier)
+                .then(((res: idrettsanleggSearchResult) => dispatch(lagreIdrettsanlegg(res))))
                 .catch(err => console.error(err));
 
         }
